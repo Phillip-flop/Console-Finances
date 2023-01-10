@@ -129,5 +129,5 @@ let average = Math.round((netChange / 86) * 100) / 100
 console.log(`Total months: ${finances.length}`)
 console.log(`Total: $${total}`)
 console.log(`Average change: $${average}`);
-console.log(`Greatest increase: ${greatest[0]} $${greatest[1]}`);
-console.log(`Greatest decrease: ${least[0]} $${least[1]}`);
+console.log(`Greatest profits: ${greatest[0]} $${greatest[1]}`);
+console.log(`Greatest losses: ${least[0]} $${least[1]}`);
