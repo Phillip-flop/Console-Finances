@@ -89,11 +89,45 @@ let finances = [
 
 console.log(`Total months: ${finances.length}`);
 
+let difference = 0;
+let total = 0;
+let net = 0;
+let netArray = [];
+let netChange = 0;
+let least = ["", 9999999999];
+let greatest = ["", 0];
 
-let sum = 0;
 for (i = 0; i < finances.length; i++) {
-    sum += finances[i][1];
+    for (j = 0; j < finances[i].length; j++) {
+
+        if (typeof finances[i][j] !== "string") {
+            total += finances[i][j];
+            difference = finances[i][j] - net;
+            net = finances[i][j];
+            netArray.push(difference);
+            if (difference > greatest[1]) {
+                greatest = [finances[i][0], finances[i][1]];
+            }
+            if (difference < least[1]) {
+                least = [finances[i][0], finances[i][1]];
+            }
+        }
+
+    }
+
 }
-console.log(`Net profit: $${sum}`);
 
 
+for (let i = 0; i < netArray.length; i++) {
+    netChange += netArray[i];
+
+
+}
+
+let average = Math.round((netChange / 86) * 100) / 100
+
+console.log(`Total months: ${finances.length}`)
+console.log(`Total: $${total}`)
+console.log(`Average change: $${average}`);
+console.log(`Greatest increase: ${greatest[0]} $${greatest[1]}`);
+console.log(`Greatest decrease: ${least[0]} $${least[1]}`);
